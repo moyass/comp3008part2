@@ -1,6 +1,65 @@
 <!-- 
     Intialization comment
 -->
-<h1>Hello World</h>
 
+<script language="javascript" type="text/javascript">
+    // Get the answers and generate a string
+
+
+ 
+
+    var passwordLength = 3;
+
+    var possibleSymbols = "~!@#$%^&*()_+}{|:?><";
+
+    function giveMeARandomWord(string){
+
+        var word = Math.floor((Math.random() * string.length) + 0);
+
+        return string[word];
+    }
+
+    function generatePassword(){
+        // Testing if this is a vaunrability
+        var password = "";
+
+        var a1 = document.getElementById('a1').value;
+        var a2 = document.getElementById('a2').value;
+        var a3 = document.getElementById('a3').value;
+        
+        // Tokenize the strings so a1[1] is a word not a character
+        a1 = a1.split(" ");
+        a2 = a2.split(" ");
+        a3 = a3.split(" ");
+
+        // Generate a string based on random
+        
+        for (var i = 0; i < passwordLength; i++){
+            var new_a1 = giveMeARandomWord(a1);
+            var new_a2 = giveMeARandomWord(a2);
+            var new_a3 = giveMeARandomWord(a3);
+            
+            password = password.concat(new_a1) || 
+                       password.concat(new_a2) || 
+                       password.concat(new_a2);
+        }
+
+        // Show the password
+        alert(password);
+    }
+</script>
+
+<body>
+    <h1>COMP3008 Demo</h1>
+    <h2>Create Account</h2>
+    <p>Remember three situations that only you know about.</p>
+    <p>Answer with a sentence each.</p>
+
+    <input type="text" name="enter" class="enter" value="" id="a1"/>
+    <input type="text" name="enter" class="enter" value="" id="a2"/>
+    <input type="text" name="enter" class="enter" value="" id="a3"/>
+    
+    
+    <input  type="button" value="Generate Password" OnClick="generatePassword()"/>
+</body>
 
