@@ -6,10 +6,9 @@
     // Get the answers and generate a string
 
 
-    // Testing if this is a vaunrability
-    var password = "nopass";
+ 
 
-    var passwordLength = 32;
+    var passwordLength = 3;
 
     var possibleSymbols = "~!@#$%^&*()_+}{|:?><";
 
@@ -21,6 +20,9 @@
     }
 
     function generatePassword(){
+        // Testing if this is a vaunrability
+        var password = "";
+
         var a1 = document.getElementById('a1').value;
         var a2 = document.getElementById('a2').value;
         var a3 = document.getElementById('a3').value;
@@ -32,10 +34,17 @@
 
         // Generate a string based on random
         
-        for (var i = 0; i < passwordLength; i++){    
-            password = giveMeARandomWord(a1).concat(giveMeARandomWord(a2).concat(giveMeARandomWord(a3)))
+        for (var i = 0; i < passwordLength; i++){
+            var new_a1 = giveMeARandomWord(a1);
+            var new_a2 = giveMeARandomWord(a2);
+            var new_a3 = giveMeARandomWord(a3);
+            
+            password = password.concat(new_a1) || 
+                       password.concat(new_a2) || 
+                       password.concat(new_a2);
         }
 
+        // Show the password
         alert(password);
     }
 </script>
@@ -43,20 +52,11 @@
 <body>
     <h1>COMP3008 Demo</h1>
     <h2>Create Account</h2>
-    <p>Answer the following questions with a sentence.</p>
-    <p>Remember a scenario where you were a good boy? 
-        (You did something purely for good intentions)
-    </p>
+    <p>Remember three situations that only you know about.</p>
+    <p>Answer with a sentence each.</p>
+
     <input type="text" name="enter" class="enter" value="" id="a1"/>
-
-    <p>Remember a situation you still regret until today? 
-        (i.e I never said sorry and they passed away...)
-    </p>
     <input type="text" name="enter" class="enter" value="" id="a2"/>
-
-    <p>
-        At what age was it when you last shat yourself in public?
-    </p>
     <input type="text" name="enter" class="enter" value="" id="a3"/>
     
     
