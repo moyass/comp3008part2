@@ -2,5 +2,63 @@
     Intialization comment
 -->
 
+<script language="javascript" type="text/javascript">
+    // Get the answers and generate a string
 
+    // Testing if this is a vaunrability
+    var password = "nopass";
+
+    var passwordLength = 32;
+
+    var possibleSymbols = "~!@#$%^&*()_+}{|:?><";
+
+    function giveMeARandomWord(string){
+
+        var word = Math.floor((Math.random() * string.length) + 0);
+
+        return string[word];
+    }
+
+    function generatePassword(){
+        var a1 = document.getElementById('a1').value;
+        var a2 = document.getElementById('a2').value;
+        var a3 = document.getElementById('a3').value;
+        
+        // Tokenize the strings so a1[1] is a word not a character
+        a1 = a1.split(" ");
+        a2 = a2.split(" ");
+        a3 = a3.split(" ");
+
+        // Generate a string based on random
+        
+        for (var i = 0; i < passwordLength; i++){    
+            password = giveMeARandomWord(a1).concat(giveMeARandomWord(a2).concat(giveMeARandomWord(a3)))
+        }
+
+        alert(password);
+    }
+</script>
+
+<body>
+    <h1>COMP3008 Demo</h1>
+    <h2>Create Account</h2>
+    <p>Answer the following questions with a sentence.</p>
+    <p>Remember a scenario where you were a good boy? 
+        (You did something purely for good intentions)
+    </p>
+    <input type="text" name="enter" class="enter" value="" id="a1"/>
+
+    <p>Remember a situation you still regret until today? 
+        (i.e I never said sorry and they passed away...)
+    </p>
+    <input type="text" name="enter" class="enter" value="" id="a2"/>
+
+    <p>
+        At what age was it when you last shat yourself in public?
+    </p>
+    <input type="text" name="enter" class="enter" value="" id="a3"/>
+    
+    
+    <input  type="button" value="Generate Password" OnClick="generatePassword()"/>
+</body>
 
