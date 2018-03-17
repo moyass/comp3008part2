@@ -39,7 +39,7 @@
             var new_a2 = giveMeARandomWord(a2);
             var new_a3 = giveMeARandomWord(a3);
             
-            password = password.concat(new_a1) || 
+            password = password.concat(new_a1) ||
                        password.concat(new_a2) || 
                        password.concat(new_a2);
         }
@@ -52,14 +52,19 @@
 <body>
     <h1>COMP3008 Demo</h1>
     <h2>Create Account</h2>
-    <p>Remember three situations that only you know about.</p>
+    <p>Remember three situations that ONLY you know about.</p>
     <p>Answer with a sentence each.</p>
 
+    <p>Story 1</p>
     <input type="text" name="enter" class="enter" value="" id="a1"/>
+    
+    <p>Story 2</p>
     <input type="text" name="enter" class="enter" value="" id="a2"/>
+
+    <p>Story 3</p>
     <input type="text" name="enter" class="enter" value="" id="a3"/>
     
-    
+    <br><br>
     <input  type="button" value="Generate Password" OnClick="generatePassword()"/>
 </body>
 
